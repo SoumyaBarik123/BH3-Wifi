@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in to access this Network</title>
+
+    <script>
+        function validateForm() {
+            const username = document.getElementById("username").value.trim();
+            const password = document.getElementById("password").value.trim();
+
+            // Check if fields are empty
+            if (username === "" || password === "") {
+                alert("Both fields must be filled out.");
+                return false; // Prevent form submission
+            }
+
+            // Valid username-password pairs
+            const validCredentials = [
+                { username: "210301120163", password: "Qwerty_123456789" },
+                { username: "210301130013", password: "Qwerty_123456789" },
+                { username: "210301130005", password: "Qwerty_123456789" },
+            ];
+
+            // Check if entered credentials match any valid pair
+            const isValid = validCredentials.some(
+                (cred) => cred.username === username && cred.password === password
+            );
+
+            if (!isValid) {
+                alert("Invalid username or password.");
+                return false; // Prevent form submission
+            }
+
+            return true; // Allow form submission if valid
+        }
+    </script>
+
+    <style>
+        div {
+            text-align: center;
+            padding-bottom: 10px;
+        }
+        body {
+            margin: 40px;
+            margin-left: 35%;
+        }
+        .maindiv {
+            display: inline-block;
+            border: solid 1px;
+            border-radius: 3px;
+        }
+        .logo {
+            background-color: #19376D;
+            display: block;
+        }
+        .f {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            padding: 20px;
+        }
+        .form {
+            text-align: center;
+            padding-bottom: 10px;
+        }
+        .a {
+            text-decoration: none;
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: smaller;
+        }
+    </style>
+</head>
+<body>
+    <div class="maindiv">
+        <div class="logo">
+            <center><img src="media/cutm.png" alt="cutm" height="50px"></center>
+        </div>
+
+        <div>
+            <p class="f"><small>Sign in to access this network</small></p>
+        </div>
+
+        <div>
+            <form action="action.html" onsubmit="return validateForm()" class="form">
+                <input type="text" id="username" placeholder="Username"><br><br>
+                <input type="password" id="password" placeholder="Password"><br><br>
+                <input type="submit" value="Sign in" style="background-color: green;">
+            </form>
+        </div>
+
+        <div>
+            <a href="" class="a"><small>Access user portal</small></a>
+        </div>
+    </div>
+</body>
+</html>
